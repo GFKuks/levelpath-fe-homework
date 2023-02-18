@@ -1,0 +1,13 @@
+.layout__layoutOuterWrapper {
+    display: flex;
+    background-color: #F9FAFB;
+    height: 100vh;
+}
+
+.layout__layoutWrapper {
+    margin: 0 auto;
+    max-width: 56rem;
+    flex-grow: 1;
+    background-color: white;
+    padding: 1.25rem;
+}
