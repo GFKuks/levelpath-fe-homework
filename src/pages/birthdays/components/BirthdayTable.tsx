@@ -6,7 +6,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-import { BirthdayEntry } from "../../../store/birthdays/types";
+import { BirthdayEntry } from "store/birthdays";
 
 interface IDataTableProps {
     data: BirthdayEntry[];

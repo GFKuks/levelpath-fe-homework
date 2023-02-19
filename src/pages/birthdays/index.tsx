@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useAppDispatch, useBirthdayData } from "../../store";
+import { useAppDispatch, useBirthdayData } from "store";
 import { handleLoadDates } from "./api";
 import { BirthdayTable, LoadDataButton, Modal } from "./components";
 

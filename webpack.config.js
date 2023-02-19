@@ -4,9 +4,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     mode: "development",
     entry: path.join(__dirname, "src", "index.tsx"),
-    // Must handle extensions specifically, otherwise editor gets confused on smth like ./App
     resolve: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"] 
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        alias: {
+            "store": path.resolve(__dirname, "src/store/"),
+        }
     },
     module: {
         rules: [
@@ -21,13 +23,11 @@ module.exports = {
                     }
                 }
             },
-            // Typescript loader
             {
                 test: /\.tsx?$/,
                 use: "ts-loader",
                 exclude: /node_modules/,
             },
-            // Css loader
             {
                 test: /\.css?$/,
                 use: [
@@ -36,11 +36,14 @@ module.exports = {
                 ],
                 exclude: /node_modules/,
             },
+            {
+              test: /\.js$/,
+              enforce: "pre",
+              use: ["source-map-loader"],
+            },
         ]
     },
     devServer: {
-        static: path.resolve(__dirname, "./dist"),
-        historyApiFallback: true,
         port: 9000,
         hot: true,
     },
@@ -51,7 +54,6 @@ module.exports = {
     ],
     output: {
         filename: "main.js",
-        path: path.resolve(__dirname, "dist"),
         publicPath: "/",
     },
 }

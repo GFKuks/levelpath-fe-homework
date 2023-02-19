@@ -8,7 +8,7 @@ interface ILoadDataButtonProps {
 export const LoadDataButton = ({ isLoading, onClick }: ILoadDataButtonProps) => {
 	const StyledButton = styled(Button)({
 		width: "100%",
-		minHeight: "100px"
+		minHeight: "75px",
 	});
 
     return (
@@ -18,7 +18,7 @@ export const LoadDataButton = ({ isLoading, onClick }: ILoadDataButtonProps) => 
             variant="contained"
             size="large"
         >
-            {!isLoading ? "Load dates" : <Loader />}
+            {!isLoading ? "Load notable birthdays on this day" : <Loader />}
         </StyledButton>
     );
 };
