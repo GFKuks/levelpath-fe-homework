@@ -13,6 +13,7 @@ export const LoadDataButton = ({ isLoading, onClick }: ILoadDataButtonProps) => 
 
     return (
         <StyledButton
+            data-testid="load-data-button"
             onClick={onClick}
             disabled={isLoading}
             variant="contained"

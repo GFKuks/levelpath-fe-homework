@@ -13,7 +13,7 @@ export const BirthdaysPage = () => {
     const dispatch = useAppDispatch();
 
     return (
-        <>
+        <div data-testid="birthdays-page">
             <Modal
                 isOpen={modalIsOpen}
                 message={errMessage}
@@ -24,6 +24,6 @@ export const BirthdaysPage = () => {
 				isLoading={isLoading}
 			/>
             <BirthdayTable data={birthdayData} />
-        </>
+        </div>
     );
 };

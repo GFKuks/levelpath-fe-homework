@@ -13,7 +13,7 @@ interface IDataTableProps {
 };
 
 export const BirthdayTable = ({ data }: IDataTableProps) => (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} data-testid="birthdays-table">
         <Table>
             <TableHead>
                 <TableRow>

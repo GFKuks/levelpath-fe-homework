@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { BirthdayEntry, IBirthdaysState, setData } from "store/birthdays";
 
-export const handleLoadDates = (
+export const handleLoadDates = async (
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
 	setModalIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
 	setErrMessage: React.Dispatch<React.SetStateAction<string>>,
@@ -18,7 +18,7 @@ export const handleLoadDates = (
 	// Months from getMonth are zero-indexed
 	const month = currentDate.getMonth() + 1;
 
-	axios.get<{ births: BirthdayEntry[]}>(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/births/${month}/${day}`)
+	await axios.get<{ births: BirthdayEntry[]}>(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/births/${month}/${day}`)
 		.then(x => {
 			if (x.data?.births) {
 				x.data.births.sort((a, b) => a.year - b.year);
