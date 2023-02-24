@@ -17,7 +17,7 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-test("data loading from store", async () => {
+test("data loading from store after API call", async () => {
   render(
     <Provider store={createStore()}>
       <BirthdaysPage />
